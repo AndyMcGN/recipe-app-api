@@ -166,7 +166,7 @@ class PrivateUserAPITests(TestCase):
         """ Test updating user profile for authenticated user """
 
         payload = {'name': 'Updated Name', 'password': 'testpass123'}
-        res = self.client.post(ME_URL, payload)
+        res = self.client.patch(ME_URL, payload)
 
         self.user.refresh_from_db()
         self.assertEqual(self.user.name, payload['name'])
